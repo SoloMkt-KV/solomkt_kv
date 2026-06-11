@@ -1,0 +1,48 @@
+{
+  "name": "@solomkt-kv/solomkt_kv",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Generate activity KV images through the SmartKV backend plugin API.",
+  "author": "@SoloMkt-KV",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "openclaw.plugin.json",
+    "README.md",
+    "MIGRATION.md"
+  ],
+  "scripts": {
+    "plugin:build": "openclaw plugins build --entry ./index.js",
+    "plugin:validate": "openclaw plugins validate --entry ./index.js",
+    "plugin:pack": "npm pack --dry-run",
+    "prepublishOnly": "npm run plugin:build && npm run plugin:validate"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.js"
+    ],
+    "runtimeExtensions": [
+      "./index.js"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    },
+    "build": {
+      "openclawVersion": ">=2026.3.24-beta.2",
+      "pluginSdkVersion": ">=2026.3.24-beta.2"
+    }
+  },
+  "dependencies": {
+    "typebox": "^1.1.39"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.3.24-beta.2"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  }
+}

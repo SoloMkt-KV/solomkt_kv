@@ -1,0 +1,50 @@
+{
+  "id": "solomkt_kv",
+  "name": "SmartKV Image Generator",
+  "description": "Generate activity KV images through the SmartKV backend.",
+  "version": "2.0.0",
+  "entry": "index.js",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "SmartKV API key, sent as request header x-api-key."
+      },
+      "baseUrl": {
+        "type": "string",
+        "description": "SmartKV API base URL, for example http://1.94.23.191:8080/api/v1.",
+        "default": "http://1.94.23.191:8080/api/v1"
+      },
+      "timeoutMs": {
+        "type": "number",
+        "description": "Request timeout in milliseconds.",
+        "default": 1800000
+      }
+    }
+  },
+  "uiHints": {
+    "apiKey": {
+      "label": "API Key",
+      "placeholder": "Enter your SmartKV x-api-key",
+      "sensitive": true
+    },
+    "baseUrl": {
+      "label": "SmartKV API Base URL",
+      "placeholder": "http://1.94.23.191:8080/api/v1"
+    },
+    "timeoutMs": {
+      "label": "Timeout (ms)",
+      "placeholder": "1800000"
+    }
+  },
+  "contracts": {
+    "tools": [
+      "list_models",
+      "generate_image"
+    ]
+  }
+}
